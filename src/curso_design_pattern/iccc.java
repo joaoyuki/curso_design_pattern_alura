@@ -1,6 +1,14 @@
 package curso_design_pattern;
 
-public class iccc implements Imposto{
+public class iccc extends Imposto{
+    
+        public iccc() {
+            
+        }
+    
+        iccc(Imposto outroImposto) {
+            super(outroImposto);
+        }
 
 	@Override
 	public double calcularImporto(Orcamento orcamento) {
