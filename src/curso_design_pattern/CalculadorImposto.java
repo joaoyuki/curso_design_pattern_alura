@@ -10,7 +10,7 @@ public class CalculadorImposto {
 	public static void main(String[] args) {
 		Imposto icms = new icms();
 		Imposto iss = new iss(new icms(new iccc()));
-		Imposto iccc = new iccc();
+		Imposto iccc = new iccc(new ImpostoMuitoAlto());
 		
 		realizaCalculo(new Orcamento(10), icms);
 		realizaCalculo(new Orcamento(10), iss);
