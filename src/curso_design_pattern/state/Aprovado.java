@@ -10,10 +10,15 @@ package curso_design_pattern.state;
  * @author João
  */
 public class Aprovado implements EstadoDeUmOrcamento{
+    
+    boolean descontoJaFeito = false;
 
     @Override
     public void aplicaDescontoExtra(Orcamento orcamento) {
-        orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.02);
+        if (descontoJaFeito == false) {
+            orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.02);
+            this.descontoJaFeito = true;
+        }
     }
 
     @Override

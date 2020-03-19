@@ -22,6 +22,11 @@ public class Testando {
         reforma.aprova();
         
         reforma.aplicaDescontoExtra();
+        reforma.aplicaDescontoExtra();
+        reforma.aplicaDescontoExtra();
+        reforma.aplicaDescontoExtra();
+        reforma.aplicaDescontoExtra();
+        reforma.aplicaDescontoExtra();
         
         System.out.println(reforma.getValor());
         
