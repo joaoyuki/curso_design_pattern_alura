@@ -291,3 +291,183 @@ Dessa forma, reutilizamos ao invés de repetirmos código, e facilitamos possív
 ## State
 
 A principal situação que faz emergir o Design Pattern State é a necessidade de implementação de uma máquina de estados. Geralmente, o controle das possíveis transições são vários e complexos, fazendo com que a implementação não seja simples. O State auxilia a manter o controle dos estados simples e organizados através da criação de classes que representem cada estado e saiba controlar as transições.
+
+## Builder
+
+- Exemplo de builder:
+
+```java
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package curso_design_pattern.builder.exercicio01;
+
+import java.time.LocalDate;
+import java.util.List;
+
+/**
+ *
+ * @author João
+ */
+public class NotaFiscal {
+    
+    private String razaoSocial;
+    private String cnpj;
+    private double valorBruto;
+    private LocalDate dataEmissao;
+    private String observacoes;
+    private List<ItemDaNota> itens;
+
+    public NotaFiscal(String razaoSocial, String cnpj, double valorBruto, LocalDate dataEmissao, String observacoes, List<ItemDaNota> itens) {
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.valorBruto = valorBruto;
+        this.dataEmissao = dataEmissao;
+        this.observacoes = observacoes;
+        this.itens = itens;
+    }
+
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
+
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public double getValorBruto() {
+        return valorBruto;
+    }
+
+    public void setValorBruto(double valorBruto) {
+        this.valorBruto = valorBruto;
+    }
+
+    public LocalDate getDataEmissao() {
+        return dataEmissao;
+    }
+
+    public void setDataEmissao(LocalDate dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    public List<ItemDaNota> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemDaNota> itens) {
+        this.itens = itens;
+    }
+    
+}
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package curso_design_pattern.builder.exercicio01;
+
+import java.time.LocalDate;
+import java.util.List;
+
+/**
+ *
+ * @author João
+ */
+public class CriadorNotaFiscal {
+    
+    private String razaoSocial;
+    private String cnpj;
+    private double valorBruto;
+    private LocalDate dataEmissao;
+    private String observacoes;
+    private List<ItemDaNota> itens;
+    
+    public NotaFiscal constroi() {
+        return new NotaFiscal(razaoSocial, cnpj, valorBruto, dataEmissao, observacoes, itens);
+    }
+    
+    public CriadorNotaFiscal comRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+        return this;
+    }
+    
+    public CriadorNotaFiscal comCNPJ(String cnpj) {
+        this.cnpj = cnpj;
+        return this;
+    }
+    
+    public CriadorNotaFiscal comValorBruto(double valorBruto) {
+        this.valorBruto = valorBruto;
+        return this;
+    }
+    
+    public CriadorNotaFiscal comDataEmissao(LocalDate dataEmissao) {
+        this.dataEmissao = dataEmissao;
+        return this;
+    }
+    
+    public CriadorNotaFiscal comObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+        return this;
+    }
+    
+    public CriadorNotaFiscal comItens(List<ItemDaNota> itens) {
+        this.itens = itens;
+        return this;
+    }
+    
+}
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package curso_design_pattern.builder.exercicio01;
+
+import java.time.LocalDate;
+
+/**
+ *
+ * @author João
+ */
+public class Testando {
+    
+    public static void main(String[] args) {
+        
+        CriadorNotaFiscal criador = new CriadorNotaFiscal();
+        criador.comCNPJ("CNPJ").comDataEmissao(LocalDate.now()).comObservacoes("Observacoes");
+        NotaFiscal criado = criador.constroi();
+        System.out.printf("%s %n", criado.getCnpj());
+        
+    }
+    
+}
+
+
+```
+
+Sempre que tivermos um objeto complexo de ser criado, que possui diversos atributos, ou que possui uma lógica de criação complicada, podemos esconder tudo isso em um Builder.
+
+Além de centralizar o código de criação e facilitar a manutenção, ainda facilitamos a vida das classes que precisam criar essa classe complexa, afinal a interface do Builder tende a ser mais clara e fácil de ser usada.
