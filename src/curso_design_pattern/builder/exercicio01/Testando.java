@@ -16,8 +16,8 @@ public class Testando {
     public static void main(String[] args) {
         
         CriadorNotaFiscal criador = new CriadorNotaFiscal();
-        criador.comCNPJ("CNPJ").comDataEmissao(LocalDate.now()).comObservacoes("Observacoes");
-        NotaFiscal criado = criador.constroi();
+        final NotaFiscal criado = criador.comCNPJ("CNPJ").comDataEmissao(LocalDate.now()).comObservacoes("Observacoes").constroi();
+        
         System.out.printf("%s %n", criado.getCnpj());
         
     }

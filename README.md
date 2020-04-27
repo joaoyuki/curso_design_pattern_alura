@@ -471,3 +471,11 @@ public class Testando {
 Sempre que tivermos um objeto complexo de ser criado, que possui diversos atributos, ou que possui uma lógica de criação complicada, podemos esconder tudo isso em um Builder.
 
 Além de centralizar o código de criação e facilitar a manutenção, ainda facilitamos a vida das classes que precisam criar essa classe complexa, afinal a interface do Builder tende a ser mais clara e fácil de ser usada.
+
+## Fábricas e o problema de criação de objetos
+
+- O patter **factory** auxilia na criação de objetos complicados.
+- Esse é um padrão do tipo **criacional** pois lida com a criação de objetos.
+- O **factory** é bem parecido com o **builder**:
+- - O Factory serve para objetos que são criados poucas vezes e ajuda a isolar o código de criação, como uma criação de banco de dados por exemplo
+- - O Builder auxilia na criação de objetos complexos e que podem ser criados de várias formas durante o usa da aplicação
