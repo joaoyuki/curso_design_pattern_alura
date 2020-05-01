@@ -479,3 +479,15 @@ Além de centralizar o código de criação e facilitar a manutenção, ainda fa
 - O **factory** é bem parecido com o **builder**:
 - - O Factory serve para objetos que são criados poucas vezes e ajuda a isolar o código de criação, como uma criação de banco de dados por exemplo
 - - O Builder auxilia na criação de objetos complexos e que podem ser criados de várias formas durante o usa da aplicação
+
+## Muitos objetos e o Flyweight
+
+- O **Flyweight** é um design patter que ajuda quando precisamos ter vários objetos parecidos, mas não queremos ficar criando várias instancias iguais, e assim, lotando a memória com objetos parecidos.
+- O **Flyweight** sempre irá retornar o mesmo objeto quando for solicitado uma nova instancia
+
+## Salvando estados anteriores e o Memento
+
+- **memento** ajuda a criar um histórico de um objeto, guardando uma lista de estados para que possam ser recuperados depois
+
+## Interpreter
+
